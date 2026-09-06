@@ -11,3 +11,5 @@ Native CI and Windows package acceptance are pending.
 2026-09-07: Native canary gates required the existing PSX-BUILD-024 C-linkage correction and the exact public recomp-ui be8ac1d portable tool text fix. The package now carries all four complete public dependency identities (PSX-PUB-027). No game runtime behavior or recipe settings changed in this update. Native build and package checks remain required.
 
 2026-09-07: Native canary gates required the existing PSX-BUILD-024 C-linkage correction and the exact public recomp-ui be8ac1d portable tool text fix. The package now carries all four complete public dependency identities (PSX-PUB-027). No game runtime behavior or recipe settings changed in this update. Native build and package checks remain required.
+
+2026-09-07: The deeper seed-byte audit found that an earlier index entry retained LF-normalized seed text after seeds/* became binary. The worktree still held the exact accepted CRLF bytes. Re-indexed those original bytes; all 709 line endings were the only difference and all seed tokens remain unchanged. Fresh native source build is required for the final archive identity.
