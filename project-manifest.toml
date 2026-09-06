@@ -12,9 +12,9 @@ target_date = "2026-09-07"
 
 [framework]
 repository = "https://github.com/Alexbeav/psxrecomp"
-commit = "c4467d72a6f9e719b88e7182fad7172602009b14"
-tree = "6975c89b5efe74bc6dc5d5a2dff8c1efd9c219ef"
-recomp_ui_commit = "4eda65430a431e5685ae0c515ebcd912c7843bff"
+commit = "4d6f6c987ccc1f90e31966dc203ccd221545e013"
+tree = "0d30e0073f43c8012be99812394b5db46d0adb08"
+recomp_ui_commit = "be8ac1d03ee19d55394b5a5f2d9d1506edd56659"
 accepted_private_commit = "63446a28111a21a0cb7e8b5106c3614c898fc4b5"
 
 [bios]
