@@ -186,12 +186,12 @@ jobs:
         \ ]]; then\n  sdl3_env\n  echo \"SDL3 source cache hit\"\n  exit 0\nfi\n# Submodule may predate the helper \u2014\
         \ inline HTTP/1.1 prefetch.\necho \"prefetch_sdl3.sh missing; using inline curl --http1.1\"\nmkdir -p .cache\nVER=3.4.10\n\
         SHA=12b34280415ec8418c864408b93d008a20a6530687ee613d60bfbd20411f2785\nURL=\"https://github.com/libsdl-org/SDL/releases/download/release-${VER}/SDL3-${VER}.tar.gz\"\
-        \nTAR=\".cache/SDL3-${VER}.tar.gz\"\ncurl -fsSL --http1.1 --retry 5 --retry-all-errors --retry-delay 2 -o \"${TAR}\"\
-        \ \"${URL}\"\necho \"${SHA}  ${TAR}\" | sha256sum -c -\nrm -rf \"${OUT}.extracting\"\nmkdir -p \"${OUT}.extracting\"\
-        \n# --force-local: belt-and-suspenders if a path ever gains a colon.\nif tar --help 2>&1 | grep -q -- '--force-local';\
-        \ then\n  tar --force-local -xzf \"${TAR}\" -C \"${OUT}.extracting\"\nelse\n  tar -xzf \"${TAR}\" -C \"${OUT}.extracting\"\
-        \nfi\nINNER=\"$(find \"${OUT}.extracting\" -mindepth 1 -maxdepth 1 -type d | head -n1)\"\nrm -rf \"${OUT}\"\nmv \"\
-        ${INNER}\" \"${OUT}\"\nrm -rf \"${OUT}.extracting\"\nsdl3_env\n"
+        \nTAR=\".cache/SDL3-${VER}.tar.gz\"\ncurl -fsSL --http1.1 --retry 5 --retry-delay 2 -o \"${TAR}\" \"${URL}\"\necho\
+        \ \"${SHA}  ${TAR}\" | sha256sum -c -\nrm -rf \"${OUT}.extracting\"\nmkdir -p \"${OUT}.extracting\"\n# --force-local:\
+        \ belt-and-suspenders if a path ever gains a colon.\nif tar --help 2>&1 | grep -q -- '--force-local'; then\n  tar\
+        \ --force-local -xzf \"${TAR}\" -C \"${OUT}.extracting\"\nelse\n  tar -xzf \"${TAR}\" -C \"${OUT}.extracting\"\nfi\n\
+        INNER=\"$(find \"${OUT}.extracting\" -mindepth 1 -maxdepth 1 -type d | head -n1)\"\nrm -rf \"${OUT}\"\nmv \"${INNER}\"\
+        \ \"${OUT}\"\nrm -rf \"${OUT}.extracting\"\nsdl3_env\n"
     - name: Fetch portable toolchain (Windows emitters)
       if: runner.os == 'Windows'
       uses: ./psxrecomp/.github/actions/fetch-toolchain
