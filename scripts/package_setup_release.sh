@@ -87,6 +87,7 @@ exec bash "${PACKAGER}" \
   --version-env RELEASE_VERSION \
   --runtime-dir mods \
   --disc-hint "Crash Bandicoot - Warped (USA).cue" \
+  --bios-hint "SCPH-5502/5552 Europe BIOS (524288 bytes; SHA-256 1faaa18fa820a0225e488d9f086296b8e6c46df739666093987ff7d8fd352c09)" \
   --project-file CMakeLists.txt \
   --project-file project-manifest.toml \
   --project-file game.toml \
